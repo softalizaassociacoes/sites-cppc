@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbf9f5;
+  --foreground: #23291f;
+
+  --color-primary-50: #f0f8f3;
+  --color-primary-100: #dcefe2;
+  --color-primary-200: #b9dfc7;
+  --color-primary-300: #8bc7a3;
+  --color-primary-400: #59a97b;
+  --color-primary-500: #388b5c;
+  --color-primary-600: #256e46;
+  --color-primary-700: #1d5738;
+  --color-primary-800: #18452d;
+  --color-primary-900: #143a27;
+  --color-primary-950: #0a2016;
+
+  --color-accent-300: #ecc879;
+  --color-accent-400: #dfae52;
+  --color-accent-500: #c8933a;
+  --color-accent-600: #a5762c;
+  --color-accent-700: #825c24;
+
+  --color-paper: #fbf9f5;
+  --color-paper-dim: #f3efe6;
+  --color-ink: #23291f;
+  --color-ink-soft: #4b5346;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+  --color-primary-950: var(--color-primary-950);
+
+  --color-accent-300: var(--color-accent-300);
+  --color-accent-400: var(--color-accent-400);
+  --color-accent-500: var(--color-accent-500);
+  --color-accent-600: var(--color-accent-600);
+  --color-accent-700: var(--color-accent-700);
+
+  --color-paper: var(--color-paper);
+  --color-paper-dim: var(--color-paper-dim);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-lora);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.font-serif-display {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+/* Prose styles for migrated WordPress article content (posts, revista, teses, etc.) */
+.article-prose {
+  color: var(--color-ink);
+  line-height: 1.75;
+}
+.article-prose p {
+  margin: 1.1em 0;
+}
+.article-prose h1,
+.article-prose h2,
+.article-prose h3,
+.article-prose h4 {
+  font-family: var(--font-serif), Georgia, serif;
+  color: var(--color-primary-800);
+  margin: 1.6em 0 0.6em;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.article-prose h1 { font-size: 1.75rem; }
+.article-prose h2 { font-size: 1.5rem; }
+.article-prose h3 { font-size: 1.25rem; }
+.article-prose h4 { font-size: 1.1rem; }
+.article-prose a {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--color-primary-300);
+}
+.article-prose a:hover {
+  color: var(--color-accent-600);
+}
+.article-prose a[data-dead-link="true"] {
+  color: var(--color-ink-soft);
+  text-decoration: line-through;
+  pointer-events: none;
+  cursor: default;
+}
+.article-prose strong { color: var(--color-ink); }
+.article-prose blockquote {
+  border-left: 3px solid var(--color-accent-400);
+  padding: 0.25em 1.25em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--color-ink-soft);
+  background: var(--color-paper-dim);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.article-prose ul, .article-prose ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+.article-prose li { margin: 0.4em 0; }
+.article-prose img {
+  border-radius: 0.75rem;
+  margin: 1.5em 0;
+  max-width: 100%;
+  height: auto;
+}
+.article-prose figure { margin: 1.5em 0; }
+.article-prose figcaption {
+  font-size: 0.875rem;
+  color: var(--color-ink-soft);
+  text-align: center;
+  margin-top: 0.5em;
+}
