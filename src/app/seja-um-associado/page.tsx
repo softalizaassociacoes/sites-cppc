@@ -13,6 +13,16 @@ export default function SejaUmAssociadoPage() {
         title="Seja um Associado"
         description="O CPPC está aberto para receber propostas de novos filiados que compartilhem de nossa formação e fé. O cadastro de profissionais precisa ser aprovado pela diretoria nacional, e há uma anuidade a ser paga, corrigida anualmente."
       />
+      <Container className="pt-10">
+        <a
+          href="https://youtu.be/RnISw9FQe6g?si=O4iBbSkktSku0TAS"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border border-primary-300 px-5 py-2.5 text-sm font-semibold text-primary-700 hover:bg-primary-50"
+        >
+          ▶ Assista como é fácil se associar ao CPPC
+        </a>
+      </Container>
       <Container className="py-14">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           <div className="rounded-2xl border border-primary-100 bg-white p-6 shadow-sm">

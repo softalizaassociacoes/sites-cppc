@@ -26,6 +26,15 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-primary-950 via-primary-950/90 to-primary-950/60" />
         </div>
         <Container className="relative py-24 sm:py-32">
+          <div className="mb-8 inline-flex rounded-2xl bg-white p-3 shadow-lg">
+            <Image
+              src="/uploads/2024/12/IMG_6425.png"
+              alt="CPPC - Corpo de Psicólogos e Psiquiatras Cristãos"
+              width={220}
+              height={68}
+              className="h-14 w-auto sm:h-16"
+            />
+          </div>
           <p className="text-sm font-semibold uppercase tracking-wider text-accent-400">
             Fé, ciência e cuidado
           </p>
@@ -158,8 +167,35 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Núcleos Regionais */}
+      {/* Eventos futuros */}
       <section className="py-16 sm:py-20">
+        <Container className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-primary-50">
+            <Image
+              src="/uploads/2025/10/Imagem_do_WhatsApp_de_2025-09-30_as_15.46.33_c84141fe.jpg"
+              alt="Eventos CPPC"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <SectionHeading eyebrow="Agenda" title="Eventos futuros" />
+            <p className="mt-4 text-ink-soft">
+              Cursos, jornadas e encontros promovidos pelo CPPC e pelos núcleos regionais. Acompanhe
+              a agenda e faça sua inscrição.
+            </p>
+            <Link
+              href="/eventos"
+              className="mt-5 inline-flex rounded-full bg-primary-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-800"
+            >
+              Acessar eventos
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      {/* Núcleos Regionais */}
+      <section className="bg-paper-dim py-16 sm:py-20">
         <Container>
           <SectionHeading
             eyebrow="Institucional"
@@ -177,6 +213,53 @@ export default function Home() {
               </Link>
             ))}
           </div>
+        </Container>
+      </section>
+
+      {/* Revista Psicoteologia */}
+      <section className="py-16 sm:py-20">
+        <Container>
+          <SectionHeading eyebrow="Publicações" title="Revista Psicoteologia" />
+          <div className="mt-8 grid grid-cols-3 gap-4 sm:gap-6">
+            <div className="relative aspect-[2/3] overflow-hidden rounded-xl bg-primary-50 shadow-sm">
+              <Image
+                src="/uploads/2024/12/versao-final-EDICAO-67-01.jpg"
+                alt="Revista PsicoTeo Edição 67"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[2/3] overflow-hidden rounded-xl bg-primary-50 shadow-sm">
+              <Image
+                src="/uploads/2024/12/Screen-Shot-2021-12-24-at-11.53.05.png"
+                alt="Revista PsicoTeo"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="relative aspect-[2/3] overflow-hidden rounded-xl bg-primary-50 shadow-sm">
+              <Image
+                src="/uploads/2024/12/psicoteo65.png"
+                alt="Revista PsicoTeo Edição 65"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <a
+            href={siteConfig.memberPortal}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 block overflow-hidden rounded-2xl transition hover:opacity-90"
+          >
+            <Image
+              src="/uploads/2024/12/BANNER.png"
+              alt="Seja um Associado"
+              width={1200}
+              height={160}
+              className="h-auto w-full"
+            />
+          </a>
         </Container>
       </section>
     </>
