@@ -9,13 +9,15 @@ export function Footer() {
     <footer className="mt-24 border-t border-primary-100 bg-primary-950 text-primary-100">
       <Container className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Image
-            src="/uploads/2024/12/IMG_6425.png"
-            alt="CPPC"
-            width={180}
-            height={56}
-            className="h-11 w-auto brightness-0 invert"
-          />
+          <div className="inline-flex rounded-xl bg-white p-2">
+            <Image
+              src="/uploads/2024/12/IMG_6425.png"
+              alt="CPPC"
+              width={180}
+              height={56}
+              className="h-11 w-auto"
+            />
+          </div>
           <p className="mt-4 max-w-xs text-sm text-primary-200">
             {siteConfig.description}
           </p>

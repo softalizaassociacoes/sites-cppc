@@ -26,15 +26,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-primary-950 via-primary-950/90 to-primary-950/60" />
         </div>
         <Container className="relative py-24 sm:py-32">
-          <div className="mb-8 inline-flex rounded-2xl bg-white p-3 shadow-lg">
-            <Image
-              src="/uploads/2024/12/IMG_6425.png"
-              alt="CPPC - Corpo de Psicólogos e Psiquiatras Cristãos"
-              width={220}
-              height={68}
-              className="h-14 w-auto sm:h-16"
-            />
-          </div>
           <p className="text-sm font-semibold uppercase tracking-wider text-accent-400">
             Fé, ciência e cuidado
           </p>
