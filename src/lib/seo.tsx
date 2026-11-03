@@ -105,6 +105,14 @@ export function organizationJsonLd() {
     description: siteConfig.description,
     email: siteConfig.email,
     telephone: "+5551981910407",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address.street,
+      addressLocality: siteConfig.address.city,
+      addressRegion: siteConfig.address.state,
+      postalCode: siteConfig.address.postalCode,
+      addressCountry: "BR",
+    },
     sameAs: [siteConfig.social.facebook, siteConfig.social.instagram, siteConfig.social.x],
     areaServed: "BR",
   };

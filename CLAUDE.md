@@ -21,6 +21,7 @@ Não há banco de dados nem CMS.
 | `src/content/regions.ts` | Núcleos regionais e contatos |
 | `src/content/books.ts`, `team.ts`, `members.ts`, `assessorias.ts` | Listas das páginas de Livros, Diretoria, Membros Plenos e Assessorias |
 | `src/content/legacy-media-redirects.json` | Mídia do WordPress que mudou de caminho (gerado, ver abaixo) |
+| `public/softaliza-logobranca.png` | Logo da Softaliza no rodapé (versão branca, para o fundo verde escuro) |
 | `public/uploads/AAAA/MM/` | Imagens e PDFs, no mesmo caminho que tinham no WordPress (sem o `/wp-content`) |
 
 **Regra:** nenhuma URL externa é digitada dentro de uma página. Tudo que é endereço
@@ -43,16 +44,24 @@ Essa única página reúne os planos (*"Escolha seu plano"*) **e** o formulário
 Endereços antigos que **não** foram trocados, porque são outro caminho e não têm
 equivalente no Assocializa:
 
-- `associacoes.softaliza.com.br/busca_de_profissionais/cppc` — o diretório de
-  profissionais embutido em `/nossos-membros`. `assocializa.com.br/busca_de_profissionais/cppc` dá 404.
-- `associacoes.softaliza.com.br/evento/diálogos-literários` — inscrição de um evento
-  específico, em `src/app/eventos/page.tsx`.
+- **Diretório de profissionais** (`siteConfig.memberSearch`), embutido em
+  `/nossos-membros`: segue em `associacoes.softaliza.com.br/busca_de_profissionais/cppc`.
+  O endereço equivalente no Assocializa **ainda não existe** — conferido em 03/11/2026:
+  `assocializa.com.br/busca_de_profissionais/cppc` dá 404, e `assocializa.com.br/cppc/membros`
+  também. O padrão da plataforma é `/{associação}/membros/{pessoa}` (a ABRADEP, por
+  exemplo, tem ~700 dessas no sitemap do Assocializa), ou seja, falta publicar o
+  diretório da CPPC lá. **Assim que estiver publicado, é só trocar `memberSearch`** —
+  uma linha em `src/content/site.ts`.
+- **Inscrição do evento Diálogos Literários**, em `src/app/eventos/page.tsx`:
+  `associacoes.softaliza.com.br/evento/diálogos-literários`. Decidido manter.
 
 ### Contato
 
 O e-mail correto é **`secretaria@cppc.org.br`**. O WordPress antigo mostrava
 `cppcbrasiloficial@gmail.com` na página de contato; esse endereço **não entra** no site novo.
-Telefone: (51) 98191-0407. Ambos saem de `src/content/site.ts`.
+Telefone: (51) 98191-0407. Endereço: SGAN 608, Lote F, Sala 326 — Brasília/DF,
+CEP 70850-080, que aparece no rodapé e no JSON-LD `Organization` (`PostalAddress`).
+Tudo sai de `src/content/site.ts`.
 
 ### Conteúdo que ficou de fora de propósito
 
@@ -67,6 +76,21 @@ Ciência do Solo) e sobraram páginas com conteúdo alheio. **Nada disso foi mig
 | `/eventos-anteriores/` | RBMCSA, Simpósio Mineiro de Ciência do Solo, IUSS — SBCS |
 | `/galeria-de-homenageados/` | Estatuto da SBCS, Prêmio Antonio Carlos Moniz — SBCS |
 
+### Imagens de terceiros
+
+O conteúdo do WordPress foi montado a partir da Wayback Machine, e os corpos de algumas
+notícias ficaram com imagens servidas pelo `web.archive.org`. Foram **removidas** as cinco
+cuja origem está morta (`static.ricmais.com.br` e `782447.smushcdn.com` não respondem mais;
+o botão de download do próprio CPPC dava 404 e ainda estava dentro de um link morto).
+
+**Seguem apontando para o `web.archive.org`** cinco imagens de `vyaestelar.com.br`, em
+`covid-19-a-dor-de-nao-poder-dizer-adeus-aos-nossos-mortos` e
+`covid-19-como-ser-vetor-de-transmissao-positiva-escrito-por-fatima-fontes`. O arquivo
+original saiu do ar (404 em `vyaestelar.com.br`) e o `web.archive.org` é bloqueado pela
+política de rede do ambiente de nuvem, então não dá para baixá-las de dentro de uma
+sessão. Para resolver: liberar `web.archive.org` nas configurações de rede do ambiente,
+ou baixar as imagens à mão e colocá-las em `public/uploads/`.
+
 Da mesma forma, boa parte da mídia do WordPress (`/wp-content/uploads/2023/*` e
 `2024/01`–`2024/11`, ~1.180 arquivos: Boletim SBCS, Estatuto 2023, logo-sbcs…) é da SBCS
 e **não** foi copiada. Essas URLs devem mesmo responder 404 no site novo.
@@ -74,7 +98,8 @@ e **não** foi copiada. Essas URLs devem mesmo responder 404 no site novo.
 ### Páginas publicadas sem conteúdo
 
 Três páginas existem na navegação mas ainda não têm conteúdo (no WordPress também não
-têm — todas dizem "Em Breve"). Elas respondem 200, mas ficam **fora do sitemap e com
+têm — todas dizem "Em Breve"). **As rotas ficam**, para quem tiver o link antigo não
+cair em 404, mas enquanto estiverem vazias elas respondem 200 **fora do sitemap e com
 `noindex`**, via `hidden: true` em `pageMetadata()`:
 
 - `/galeria-de-homenageados`
@@ -82,6 +107,11 @@ têm — todas dizem "Em Breve"). Elas respondem 200, mas ficam **fora do sitema
 - `/notas-de-falecimentos`
 
 As regiões sem núcleos cadastrados (`norte`, `nordeste`, `sudeste`) seguem a mesma regra.
+
+No caso da **Galeria de Homenageados**, não existe conteúdo da CPPC em lugar nenhum
+para preenchê-la: a única página com esse nome, no WordPress, traz os sócios honorários
+e o Prêmio Antonio Carlos Moniz **da SBCS**. Falta a CPPC mandar a lista dos próprios
+homenageados.
 
 Quando o conteúdo chegar, basta tirar o `hidden: true` e acrescentar a rota em
 `staticRoutes`, em `src/app/sitemap.ts`.
@@ -117,6 +147,20 @@ Google só enxerga o `noindex` se puder buscar a página.
 - Open Graph e Twitter Card com imagem `public/og-cppc.png` (1200×630)
 - JSON-LD `Organization` + `WebSite` na home
 - JSON-LD `Article` nas páginas de notícia, revista, teses, memórias, boletins e bíblia conselheira
+
+### Acessibilidade
+
+Lighthouse no celular: **acessibilidade e SEO 100** nas dez páginas medidas. Três coisas
+precisaram de ajuste, nenhuma delas mexendo no desenho aprovado:
+
+- Os links de rede social do rodapé têm o texto visível ("f", "ig", "x") repetido num
+  `<span className="sr-only">`, porque o nome acessível precisa conter o texto visível.
+- Os títulos de card em listagens são `h2`, não `h3`: vindo logo depois do `h1` da página,
+  um `h3` pularia um degrau. O `PostCard` tem a prop `headingLevel` para os casos em que
+  o card está dentro de uma seção que já tem `h2` (a home).
+- `--color-accent-600` foi escurecido de `#a5762c` para `#8a6325`, para o dourado dos
+  textos pequenos passar no contraste 4.5:1 da WCAG AA nos quatro fundos claros do site.
+  Essa cor é usada só como cor de texto, nunca como fundo.
 
 Tudo isso vem dos helpers de `src/lib/seo.tsx`: `pageMetadata()`, `articleMetadata()`,
 `organizationJsonLd()`, `articleJsonLd()`, `<JsonLd>`.

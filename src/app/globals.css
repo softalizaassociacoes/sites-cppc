@@ -19,7 +19,12 @@
   --color-accent-300: #ecc879;
   --color-accent-400: #dfae52;
   --color-accent-500: #c8933a;
-  --color-accent-600: #a5762c;
+  /* Escurecido de #a5762c para passar no contraste 4.5:1 da WCAG AA nos textos
+     pequenos sobre fundo claro (olho-de-boi das seções, datas dos cards).
+     Contraste nos quatro fundos claros do site: 5.13 no papel (#fbf9f5),
+     5.40 no branco, 4.70 no papel escurecido (#f3efe6) e 4.99 no primary-50.
+     Usado só como cor de texto, nunca como fundo. */
+  --color-accent-600: #8a6325;
   --color-accent-700: #825c24;
 
   --color-paper: #fbf9f5;

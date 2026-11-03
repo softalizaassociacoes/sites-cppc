@@ -87,6 +87,14 @@ export function Footer() {
             </li>
             <li>{siteConfig.phone}</li>
             <li>
+              <address className="not-italic leading-relaxed">
+                {siteConfig.address.street}
+                <br />
+                {siteConfig.address.city}/{siteConfig.address.state} — CEP{" "}
+                {siteConfig.address.postalCode}
+              </address>
+            </li>
+            <li>
               <Link href="/contato" className="hover:text-accent-300">
                 Fale conosco
               </Link>
@@ -117,9 +125,10 @@ export function Footer() {
               <Image
                 src="/softaliza-logobranca.png"
                 alt="Softaliza"
-                width={285}
-                height={84}
-                className="h-5 w-auto"
+                width={111}
+                height={20}
+                unoptimized
+                className="h-[18px] w-auto"
               />
             </a>
           </div>

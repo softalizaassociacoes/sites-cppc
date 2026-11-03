@@ -32,6 +32,13 @@ export const siteConfig = {
   url: siteUrl,
   email: "secretaria@cppc.org.br",
   phone: "(51) 98191-0407",
+  address: {
+    full: "SGAN 608, Lote F, Sala 326 — Brasília/DF, CEP 70850-080",
+    street: "SGAN 608, Lote F, Sala 326",
+    city: "Brasília",
+    state: "DF",
+    postalCode: "70850-080",
+  },
   social: {
     facebook: "https://www.facebook.com/cppcbrasil/?ref=br_rs",
     instagram: "https://www.instagram.com/cppcbrasil/",
