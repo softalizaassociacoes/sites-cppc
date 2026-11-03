@@ -68,7 +68,8 @@ export default function OrganizacaoPage() {
             a cargo de um grupo em Belo Horizonte. E veio o Primeiro Congresso em 1977, no retiro dos
             Pinheiros, na saída de Belo Horizonte para Ouro Preto, MG. Placas de sinalização do local
             do Encontro CPPC para os participantes chamaram atenção da Polícia Federal, que fez um
-            acompanhamento à distância e dias após procurou-nos em casa para esclarecimentos.
+            acompanhamento à distância e dias após procurou-nos em casa para esclarecimentos. Fiquei
+            assustado, mas meu pai participou da conversa com os agentes, me tranquilizando.
           </p>
           <p>
             Queriam que fornecêssemos uma lista com os nomes dos participantes. Recusamos esta

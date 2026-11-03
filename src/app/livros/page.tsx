@@ -37,16 +37,28 @@ export default function LivrosPage() {
                 {book.description && (
                   <p className="mt-2 line-clamp-4 text-sm text-ink-soft">{book.description}</p>
                 )}
-                {book.link && (
-                  <a
-                    href={book.link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-4 inline-flex w-fit rounded-full border border-primary-300 px-4 py-1.5 text-sm font-semibold text-primary-700 hover:bg-primary-50"
-                  >
-                    Adquirir
-                  </a>
-                )}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {book.link && (
+                    <a
+                      href={book.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex w-fit rounded-full border border-primary-300 px-4 py-1.5 text-sm font-semibold text-primary-700 hover:bg-primary-50"
+                    >
+                      {book.videoUrl ? "Saiba mais" : "Adquirir"}
+                    </a>
+                  )}
+                  {book.videoUrl && (
+                    <a
+                      href={book.videoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex w-fit rounded-full border border-primary-300 px-4 py-1.5 text-sm font-semibold text-primary-700 hover:bg-primary-50"
+                    >
+                      Confira o vídeo
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           ))}

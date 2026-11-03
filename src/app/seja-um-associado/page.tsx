@@ -44,9 +44,14 @@ export default function SejaUmAssociadoPage() {
               <li>4. Ler os livros e textos que fundamentam a construção da nossa base psicoteológica.</li>
               <li>
                 5. Passar por acompanhamento e supervisão de um membro pleno, através de 4 encontros
-                (on-line ou presenciais).
+                (on-line ou presenciais, conforme acordado entre ambos).
               </li>
             </ol>
+            <p className="mt-3 text-sm text-ink-soft">
+              Este membro pleno será designado pela diretoria do CPPC para este acompanhamento e, além
+              de explicar e discutir os propósitos, a importância e as implicações de se tornar membro,
+              também poderá conduzir discussões sobre a leitura dos livros e textos da psicoteologia.
+            </p>
             <a
               href={siteConfig.memberPortal}
               target="_blank"

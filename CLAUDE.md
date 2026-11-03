@@ -76,6 +76,36 @@ Ciência do Solo) e sobraram páginas com conteúdo alheio. **Nada disso foi mig
 | `/eventos-anteriores/` | RBMCSA, Simpósio Mineiro de Ciência do Solo, IUSS — SBCS |
 | `/galeria-de-homenageados/` | Estatuto da SBCS, Prêmio Antonio Carlos Moniz — SBCS |
 
+### Conferência contra o site antigo (03/11/2026)
+
+A base de conteúdo é o <https://cppc.org.br>. A comparação foi refeita contra as
+**páginas renderizadas** do WordPress, e não contra `content.rendered` da API: as
+páginas são feitas em Elementor, e o `<main id="content">` do HTML é o que vale.
+
+- **130 notícias: completas.** As únicas diferenças são o título repetido dentro do
+  corpo pelo Elementor, que no site novo virou o `<h1>` da página.
+- **34 páginas comparadas frase a frase.** Foram encontradas e corrigidas estas
+  perdas da migração:
+
+| Página | O que faltava |
+|---|---|
+| `/assessorias` | **5 das 8 assessorias**: Científica (Dr. Rogério Zimpel), Redes Sociais (Guilherme Falcão), Internacional (Zenon Lotufo), Internacional (Roseli Kühnrich Oliveira) e Teológica (Luis Gonçalo Silvério) |
+| `/quem-somos` | 4 parágrafos: o da unidade harmônica, o do espaço acolhedor, o da divulgação de publicações dos associados e o do espaço de interlocução |
+| `/seja-um-associado` | O parágrafo sobre o membro pleno designado pela diretoria para o acompanhamento |
+| `/organizacao` | A frase "Fiquei assustado, mas meu pai participou da conversa com os agentes, me tranquilizando" |
+| `/nucleos-regionais/sao-paulo` | A secretaria do núcleo da Baixada Santista (Elvira Batista Rodrigues) |
+| `/nossos-membros` | O botão "Abrir a busca em tela cheia" para telas estreitas (mudança do WordPress de 14/09/2026) |
+| `/livros` | O segundo link do card da Bíblia de Estudo Conselheira ("Confira o vídeo") |
+
+O restante das diferenças que a comparação aponta é reescrita da migração (numeração
+dos requisitos, acentuação, "PsicoTeo" no lugar de "Psicoteo (Psicoteologia)"), com o
+conteúdo preservado. A única omissão deliberada é o `cppcbrasiloficial@gmail.com` da
+página de contato, substituído por `secretaria@cppc.org.br`.
+
+Para repetir a conferência: baixar `https://cppc.org.br/<slug>/` de cada página, extrair
+o texto de dentro de `<main id="content">` e comparar com o `innerText` do `<main>` da
+rota equivalente no site novo.
+
 ### Imagens de terceiros
 
 O conteúdo do WordPress foi montado a partir da Wayback Machine, e os corpos de algumas

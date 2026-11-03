@@ -18,7 +18,10 @@ export default function AssessoriasPage() {
       <Container className="py-14">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
           {assessorias.map((a) => (
-            <div key={a.title} className="rounded-2xl border border-primary-100 bg-white p-6 shadow-sm">
+            <div
+              key={`${a.title}-${a.responsavel}`}
+              className="rounded-2xl border border-primary-100 bg-white p-6 shadow-sm"
+            >
               <h2 className="font-serif-display text-lg font-semibold text-primary-900">{a.title}</h2>
               <p className="mt-2 text-sm text-ink-soft">{a.responsavel}</p>
               {a.email && (

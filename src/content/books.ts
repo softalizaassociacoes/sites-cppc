@@ -4,6 +4,8 @@ export interface Book {
   author: string | null;
   link: string | null;
   description: string | null;
+  /** Segundo link do card, quando o site antigo tinha um ("Confira o vídeo"). */
+  videoUrl?: string;
 }
 
 export const books: Book[] = [
@@ -47,7 +49,8 @@ export const books: Book[] = [
     "image": "/uploads/2025/01/images-3.jpg",
     "author": null,
     "link": "http://www.sbb.com.br",
-    "description": "Conheça a versão completa da Bíblia de Estudo Conselheira! Todos os estudos da publicação foram elaborados por um grupo de conceituados psicólogos e psiquiatras cristãos."
+    "description": "Conheça a versão completa da Bíblia de Estudo Conselheira! Todos os estudos da publicação foram elaborados por um grupo de conceituados psicólogos e psiquiatras cristãos.",
+    "videoUrl": "https://www.instagram.com/tv/Bx24m3hAcKw/"
   },
   {
     "title": "Vencendo o silêncio da alma",

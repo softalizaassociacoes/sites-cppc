@@ -57,6 +57,7 @@ export const regions: Region[] = [
       { cidade: "Campinas (SP)", contato: "Margarete Bonuccelli Lisboa", telefone: "(19) 9 8115-3780", email: "bonuccelli@bol.com.br" },
       { cidade: "Guarulhos (SP)", contato: "Margarete Bonuccelli Lisboa", telefone: "(19) 9 8115-3780", email: "bonuccelli@bol.com.br" },
       { cidade: "Baixada Santista (SP)", contato: "Luis Antonio Pereira", telefone: "(13) 9 9713-0004", email: "kelujo62@gmail.com" },
+      { cidade: "Baixada Santista (SP) — Secretaria", contato: "Elvira Batista Rodrigues", telefone: "(13) 9 9711-0553 / (13) 3232-1659", email: "ebrodrigues2411@gmail.com" },
       { cidade: "SP / Bauru (SP)", contato: "Cláudio Marcio Salviano", telefone: "(14) 3227-3715 / (14) 9 9793-9552", email: "secretariapsicologosalviano@gmail.com" },
       { cidade: "SP / Marília (SP)", contato: "Rodrigo Cesar Vieira", telefone: "(14) 9 8818-3672", email: "rodcvieira@yahoo.com.br" },
       { cidade: "SP / Osasco (SP)", contato: "Elaine Gomes Ventura", telefone: "(11) 3683-0299 / (11) 9 9137-6000", email: "elainegomes.psi@gmail.com" },

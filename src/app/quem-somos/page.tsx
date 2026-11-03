@@ -45,6 +45,11 @@ export default function QuemSomosPage() {
               o 1º Congresso Nacional do Corpo de Psicólogos e Psiquiatras Cristãos.
             </p>
             <p>
+              Diferentes membros reunidos numa unidade harmônica e funcional, que nutre e sustenta a
+              cada um e que se põe em movimento para o serviço ao próximo, em sintonia com o Deus
+              criador.
+            </p>
+            <p>
               Muita literatura relevante tem sido publicada pelos associados. Destacamos a Bíblia de
               Estudo Conselheira, em parceria com a Sociedade Bíblica do Brasil (SBB). Editamos a
               revista PsicoTeo, que é nosso órgão oficial. O CPPC compõe-se de membros associados que
@@ -61,6 +66,11 @@ export default function QuemSomosPage() {
               Brasil nas regiões: Norte, Nordeste, Centro-Oeste, Leste, Sul e São Paulo. Os coordenadores
               regionais dos núcleos fazem parte da Diretoria Executiva Nacional.
             </p>
+            <p>
+              Com um espaço acolhedor, promotor de comunhão entre as pessoas, exprimindo os valores e a
+              ética do Reino do Senhor Jesus Cristo na vida pessoal, na atuação profissional, na
+              inserção eclesiástica e na presença em sociedade.
+            </p>
 
             <h2>O que oferecemos</h2>
             <p>
@@ -70,6 +80,16 @@ export default function QuemSomosPage() {
               profissional no nosso site e interação virtual através dos grupos de WhatsApp da região e
               CPPC Nacional, para troca de experiências, informações, indicações e palavras de
               fortalecimento e comunhão.
+            </p>
+            <p>
+              Um associado pode ter suas publicações literárias divulgadas depois de avaliadas e
+              aprovadas.
+            </p>
+            <p>
+              O CPPC tem se empenhado em oferecer um espaço de interlocução e troca de experiências,
+              desafiando-nos mutuamente a uma ação consciente e transformadora. Que toda mudança comece
+              sempre por nós mesmos e atinja nossas famílias, nossas igrejas, nossas organizações
+              profissionais, sociais e políticas.
             </p>
             <blockquote>
               &ldquo;Cada um servirá de esconderijo contra o vento, de refúgio contra a tempestade, de

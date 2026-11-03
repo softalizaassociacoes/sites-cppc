@@ -18,7 +18,7 @@ export default function NucleosRegionaisPage() {
       <PageHero
         eyebrow="Institucional"
         title="Núcleos Regionais"
-        description="O CPPC atua através de núcleos regionais espalhados pelo Brasil. Todos os núcleos estão ligados às lideranças regionais. Se você se encontra em uma destas regiões, faça contato com o líder e participe das nossas reuniões."
+        description="O CPPC atua através de núcleos regionais espalhados pelo Brasil. Todos os núcleos estão ligados às lideranças regionais. Se você se encontra em uma destas regiões ou núcleos, faça contato com o líder e participe das nossas reuniões."
       />
       <Container className="py-14">
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
