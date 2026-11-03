@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 
-export const metadata: Metadata = { title: "Estatuto" };
+export const metadata: Metadata = pageMetadata({
+  title: "Estatuto",
+  description:
+    "Estatuto Social do CPPC em PDF: o documento oficial que rege a organização, os propósitos e o funcionamento da associação.",
+  path: "/estatuto",
+});
 
 export default function EstatutoPage() {
   return (

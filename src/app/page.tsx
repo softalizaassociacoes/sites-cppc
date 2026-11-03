@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/Container";
@@ -6,6 +7,14 @@ import { PostCard } from "@/components/PostCard";
 import { cremos, siteConfig } from "@/content/site";
 import { regions } from "@/content/regions";
 import { getPostsByCategory } from "@/lib/posts";
+import { JsonLd, organizationJsonLd, pageMetadata, webSiteJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Corpo de Psicólogos e Psiquiatras Cristãos",
+  description:
+    "O CPPC reúne profissionais e estudantes da saúde mental num fórum permanente de estudos sobre Psicologia, Teologia e saúde. Conheça a associação, os núcleos regionais e as publicações.",
+  path: "/",
+});
 
 export default function Home() {
   const noticias = getPostsByCategory("noticias").slice(0, 3);
@@ -13,6 +22,8 @@ export default function Home() {
 
   return (
     <>
+      <JsonLd data={organizationJsonLd()} />
+      <JsonLd data={webSiteJsonLd()} />
       {/* Hero */}
       <section className="relative overflow-hidden bg-primary-950">
         <div className="absolute inset-0">
@@ -133,7 +144,7 @@ export default function Home() {
             />
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {quadros.map((post) => (
-                <PostCard key={post.id} post={post} basePath="/biblia-conselheira" />
+                <PostCard headingLevel="h3" key={post.id} post={post} basePath="/biblia-conselheira" />
               ))}
             </div>
             <Link href="/biblia-conselheira" className="mt-6 inline-flex font-semibold text-primary-700 hover:text-primary-900">
@@ -149,7 +160,7 @@ export default function Home() {
           <SectionHeading eyebrow="Fique por dentro" title="Últimas notícias" />
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {noticias.map((post) => (
-              <PostCard key={post.id} post={post} basePath="/noticias" />
+              <PostCard headingLevel="h3" key={post.id} post={post} basePath="/noticias" />
             ))}
           </div>
           <Link href="/noticias" className="mt-6 inline-flex font-semibold text-primary-700 hover:text-primary-900">

@@ -27,33 +27,33 @@ export function Footer() {
               target="_blank"
               rel="noreferrer"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-700 hover:bg-primary-800"
-              aria-label="Facebook"
             >
-              f
+              <span aria-hidden="true">f</span>
+              <span className="sr-only">f Facebook</span>
             </a>
             <a
               href={siteConfig.social.instagram}
               target="_blank"
               rel="noreferrer"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-700 hover:bg-primary-800"
-              aria-label="Instagram"
             >
-              ig
+              <span aria-hidden="true">ig</span>
+              <span className="sr-only">ig Instagram</span>
             </a>
             <a
               href={siteConfig.social.x}
               target="_blank"
               rel="noreferrer"
               className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-700 hover:bg-primary-800"
-              aria-label="X"
             >
-              x
+              <span aria-hidden="true">x</span>
+              <span className="sr-only">x X</span>
             </a>
           </div>
         </div>
 
         <div>
-          <h3 className="font-serif-display text-lg font-semibold text-white">Institucional</h3>
+          <h2 className="font-serif-display text-lg font-semibold text-white">Institucional</h2>
           <ul className="mt-4 space-y-2 text-sm text-primary-200">
             <li><Link href="/quem-somos" className="hover:text-accent-300">Quem Somos</Link></li>
             <li><Link href="/organizacao" className="hover:text-accent-300">Organização</Link></li>
@@ -65,7 +65,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-serif-display text-lg font-semibold text-white">Núcleos Regionais</h3>
+          <h2 className="font-serif-display text-lg font-semibold text-white">Núcleos Regionais</h2>
           <ul className="mt-4 space-y-2 text-sm text-primary-200">
             {regions.map((r) => (
               <li key={r.slug}>
@@ -78,7 +78,7 @@ export function Footer() {
         </div>
 
         <div>
-          <h3 className="font-serif-display text-lg font-semibold text-white">Contato</h3>
+          <h2 className="font-serif-display text-lg font-semibold text-white">Contato</h2>
           <ul className="mt-4 space-y-2 text-sm text-primary-200">
             <li>
               <a href={`mailto:${siteConfig.email}`} className="hover:text-accent-300">
@@ -101,9 +101,28 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-primary-800 py-6">
-        <Container className="flex flex-col items-center justify-between gap-2 text-xs text-primary-300 sm:flex-row">
-          <p>© {new Date().getFullYear()} CPPC — Corpo de Psicólogos e Psiquiatras Cristãos. Todos os direitos reservados.</p>
-          <p>Feito com cuidado para a comunidade CPPC.</p>
+        <Container className="flex flex-col items-center gap-4 text-xs text-primary-300 sm:flex-row sm:justify-between sm:gap-6">
+          <p className="text-center sm:text-left">
+            © {new Date().getFullYear()} CPPC — Corpo de Psicólogos e Psiquiatras Cristãos. Todos os
+            direitos reservados.
+          </p>
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+            <p className="text-center sm:text-right">Feito com cuidado para a comunidade CPPC.</p>
+            <a
+              href="https://softaliza.com.br/?ref=cppc"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex shrink-0 rounded opacity-70 transition hover:opacity-100 focus-visible:opacity-100"
+            >
+              <Image
+                src="/softaliza-logobranca.png"
+                alt="Softaliza"
+                width={285}
+                height={84}
+                className="h-5 w-auto"
+              />
+            </a>
+          </div>
         </Container>
       </div>
     </footer>

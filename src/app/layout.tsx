@@ -3,7 +3,7 @@ import { Inter, Lora } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { siteConfig } from "@/content/site";
+import { noIndex, siteConfig, siteUrl } from "@/content/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -18,19 +18,38 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(siteUrl),
   title: {
     default: `${siteConfig.name} – ${siteConfig.fullName}`,
     template: `%s – ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  // Enquanto NEXT_PUBLIC_NOINDEX não for "false" (endereço provisório), o site
+  // responde noindex. O header X-Robots-Tag equivalente está em next.config.ts.
+  robots: noIndex
+    ? { index: false, follow: false, googleBot: { index: false, follow: false } }
+    : { index: true, follow: true },
   openGraph: {
+    type: "website",
     title: `${siteConfig.name} – ${siteConfig.fullName}`,
     description: siteConfig.description,
-    url: siteConfig.url,
+    url: siteUrl,
     siteName: siteConfig.name,
     locale: "pt_BR",
-    type: "website",
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.fullName,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} – ${siteConfig.fullName}`,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
 };
 

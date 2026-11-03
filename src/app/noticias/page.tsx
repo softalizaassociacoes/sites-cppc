@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { PostCard } from "@/components/PostCard";
 import { getPostsByCategory } from "@/lib/posts";
 
-export const metadata: Metadata = { title: "Notícias" };
+export const metadata: Metadata = pageMetadata({
+  title: "Notícias",
+  description:
+    "Comunicados, artigos e reflexões da comunidade do CPPC sobre psicologia, psiquiatria, teologia e saúde mental.",
+  path: "/noticias",
+});
 
 const PAGE_SIZE = 12;
 

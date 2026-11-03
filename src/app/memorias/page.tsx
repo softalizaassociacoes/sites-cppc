@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { PostCard } from "@/components/PostCard";
 import { getPostsByCategory } from "@/lib/posts";
 
-export const metadata: Metadata = { title: "Memórias" };
+export const metadata: Metadata = pageMetadata({
+  title: "Memórias CPPC",
+  description:
+    "Registros e fotografias de congressos, cursos e encontros que fazem parte da história de cinco décadas do CPPC.",
+  path: "/memorias",
+});
 
 export default function MemoriasPage() {
   const posts = getPostsByCategory("memorias");

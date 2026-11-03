@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { SectionHeading } from "@/components/SectionHeading";
 import { siteConfig } from "@/content/site";
 
-export const metadata: Metadata = { title: "Eventos" };
+export const metadata: Metadata = pageMetadata({
+  title: "Eventos",
+  description:
+    "Congressos, jornadas e encontros do CPPC: os próximos eventos abertos a inscrição e o registro dos que já aconteceram.",
+  path: "/eventos",
+});
 
 const eventosFinalizados = [
   { image: "/uploads/2025/04/Pre-congressoCPPC_capa-_1_.jpg", alt: "Pré-Congresso CPPC" },

@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { siteConfig } from "@/content/site";
 
-export const metadata: Metadata = { title: "Contato" };
+export const metadata: Metadata = pageMetadata({
+  title: "Contato",
+  description:
+    "Fale com o CPPC pelo e-mail secretaria@cppc.org.br, pelo telefone (51) 98191-0407 ou pelas nossas redes sociais.",
+  path: "/contato",
+});
 
 export default function ContatoPage() {
   return (

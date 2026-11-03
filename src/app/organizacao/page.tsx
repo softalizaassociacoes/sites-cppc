@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 
-export const metadata: Metadata = { title: "Organização" };
+export const metadata: Metadata = pageMetadata({
+  title: "Organização",
+  description:
+    "Como o CPPC se organiza: entidade civil de caráter educativo-científico, sem fins lucrativos, nascida em 1976 em Curitiba (PR).",
+  path: "/organizacao",
+});
 
 export default function OrganizacaoPage() {
   return (

@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { condutaEtica } from "@/content/site";
 
-export const metadata: Metadata = { title: "Conduta Ética" };
+export const metadata: Metadata = pageMetadata({
+  title: "Conduta Ética",
+  description:
+    "Os compromissos éticos assumidos pelos psicólogos e psiquiatras associados ao CPPC no atendimento a indivíduos, casais, famílias e grupos.",
+  path: "/conduta-etica",
+});
 
 export default function CondutaEticaPage() {
   return (

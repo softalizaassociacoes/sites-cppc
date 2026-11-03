@@ -1,9 +1,35 @@
+/**
+ * Endereço-base do site. Vem de NEXT_PUBLIC_SITE_URL (definida na Vercel), para que
+ * canonical, Open Graph, sitemap e robots.txt acompanhem a troca de domínio sem
+ * alteração de código. Hoje: https://cppc.softaliza.com.br — no dia da migração do
+ * domínio basta trocar a variável para https://cppc.org.br.
+ */
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL || "https://cppc.softaliza.com.br"
+).replace(/\/+$/, "");
+
+/**
+ * Enquanto o site está no endereço provisório, respondemos noindex (header
+ * X-Robots-Tag em next.config.ts + meta robots) para o Google não indexar
+ * cppc.softaliza.com.br como cópia do site de verdade.
+ * Desligar no dia da migração: NEXT_PUBLIC_NOINDEX=false.
+ */
+export const noIndex = process.env.NEXT_PUBLIC_NOINDEX !== "false";
+
+/**
+ * Plataforma de associados (Assocializa). Esta única página reúne os planos
+ * ("Escolha seu plano") e o formulário de login ("Já é associado? Faça login abaixo"),
+ * por isso serve tanto para "Associe-se" quanto para "Fazer login" / "Portal do associado".
+ * Não existe /login/cppc no Assocializa (404).
+ */
+export const ASSOCIALIZA_CPPC = "https://assocializa.com.br/cppc";
+
 export const siteConfig = {
   name: "CPPC",
   fullName: "Corpo de Psicólogos e Psiquiatras Cristãos",
   description:
     "Associação brasileira, sem fins lucrativos, de caráter cultural, teológico e científico, que agrega profissionais e estudantes da área de saúde mental.",
-  url: "https://cppc.softaliza.com.br",
+  url: siteUrl,
   email: "secretaria@cppc.org.br",
   phone: "(51) 98191-0407",
   social: {
@@ -11,9 +37,13 @@ export const siteConfig = {
     instagram: "https://www.instagram.com/cppcbrasil/",
     x: "https://x.com/cppcbrasil",
   },
-  memberPortal: "https://associacoes.softaliza.com.br/login/cppc",
+  /** Associe-se, Fazer login e Portal do associado — todos apontam para cá. */
+  memberPortal: ASSOCIALIZA_CPPC,
+  /** Busca pública de profissionais: ainda não existe no Assocializa (404 lá). */
   memberSearch: "https://associacoes.softaliza.com.br/busca_de_profissionais/cppc",
   congressoSite: "https://congressonacionalcppc.com.br/",
+  /** Imagem padrão de Open Graph (1200x630). */
+  ogImage: "/og-cppc.png",
 };
 
 export const cremos: string[] = [

@@ -35,7 +35,14 @@ export function ArticleContent({ post }: { post: Post }) {
 
         {showFeatured && post.featuredImage && (
           <div className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-2xl bg-primary-50">
-            <Image src={post.featuredImage} alt={post.title} fill className="object-cover" />
+            <Image
+              src={post.featuredImage}
+              alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              priority
+              className="object-cover"
+            />
           </div>
         )}
 

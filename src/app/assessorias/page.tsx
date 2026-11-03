@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { assessorias } from "@/content/assessorias";
 
-export const metadata: Metadata = { title: "Assessorias" };
+export const metadata: Metadata = pageMetadata({
+  title: "Assessorias",
+  description:
+    "As assessorias Universitária, Institucional e Científica do CPPC e os profissionais responsáveis por cada uma.",
+  path: "/assessorias",
+});
 
 export default function AssessoriasPage() {
   return (
@@ -13,7 +19,7 @@ export default function AssessoriasPage() {
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
           {assessorias.map((a) => (
             <div key={a.title} className="rounded-2xl border border-primary-100 bg-white p-6 shadow-sm">
-              <h3 className="font-serif-display text-lg font-semibold text-primary-900">{a.title}</h3>
+              <h2 className="font-serif-display text-lg font-semibold text-primary-900">{a.title}</h2>
               <p className="mt-2 text-sm text-ink-soft">{a.responsavel}</p>
               {a.email && (
                 <a href={`mailto:${a.email}`} className="mt-2 inline-block text-sm text-primary-700 hover:underline">

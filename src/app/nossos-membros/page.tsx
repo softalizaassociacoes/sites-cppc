@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { siteConfig } from "@/content/site";
 
-export const metadata: Metadata = { title: "Nossos Membros" };
+export const metadata: Metadata = pageMetadata({
+  title: "Nossos Membros",
+  description:
+    "Diretório de profissionais associados ao CPPC: encontre psicólogos e psiquiatras por nome, especialidade, estado e cidade.",
+  path: "/nossos-membros",
+});
 
 export default function NossosMembrosPage() {
   return (

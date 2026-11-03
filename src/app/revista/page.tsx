@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { PostCard } from "@/components/PostCard";
 import { getPostsByCategory } from "@/lib/posts";
 
-export const metadata: Metadata = { title: "Revista PsicoTeo" };
+export const metadata: Metadata = pageMetadata({
+  title: "Revista PsicoTeo",
+  description:
+    "A PsicoTeo é o órgão oficial de publicação do CPPC, com artigos, entrevistas e reflexões sobre Psicologia, Psiquiatria e Teologia.",
+  path: "/revista",
+});
 
 export default function RevistaPage() {
   const posts = getPostsByCategory("revistas");

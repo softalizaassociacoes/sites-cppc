@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { siteConfig, cremos } from "@/content/site";
 
-export const metadata: Metadata = { title: "Seja um Associado" };
+export const metadata: Metadata = pageMetadata({
+  title: "Seja um Associado",
+  description:
+    "Como se associar ao CPPC nas categorias Profissionais, Estudantes e Correspondentes: requisitos, processo de aprovação e inscrição.",
+  path: "/seja-um-associado",
+});
 
 export default function SejaUmAssociadoPage() {
   return (
@@ -26,7 +32,7 @@ export default function SejaUmAssociadoPage() {
       <Container className="py-14">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           <div className="rounded-2xl border border-primary-100 bg-white p-6 shadow-sm">
-            <h3 className="font-serif-display text-xl font-semibold text-primary-900">Profissionais</h3>
+            <h2 className="font-serif-display text-xl font-semibold text-primary-900">Profissionais</h2>
             <p className="mt-3 text-sm font-medium text-ink">Como ser um associado CPPC</p>
             <ol className="mt-2 space-y-2 text-sm text-ink-soft">
               <li>1. Ser devidamente registrado em seu conselho, CRP ou CRM.</li>
@@ -52,7 +58,7 @@ export default function SejaUmAssociadoPage() {
           </div>
 
           <div className="rounded-2xl border border-primary-100 bg-white p-6 shadow-sm">
-            <h3 className="font-serif-display text-xl font-semibold text-primary-900">Estudantes</h3>
+            <h2 className="font-serif-display text-xl font-semibold text-primary-900">Estudantes</h2>
             <ul className="mt-3 space-y-2 text-sm text-ink-soft">
               {cremos.map((c) => (
                 <li key={c}>{c}</li>
@@ -69,7 +75,7 @@ export default function SejaUmAssociadoPage() {
           </div>
 
           <div className="rounded-2xl border border-primary-100 bg-white p-6 shadow-sm">
-            <h3 className="font-serif-display text-xl font-semibold text-primary-900">Correspondentes</h3>
+            <h2 className="font-serif-display text-xl font-semibold text-primary-900">Correspondentes</h2>
             <p className="mt-3 text-sm text-ink-soft">
               Qualquer pessoa interessada em caminhar com o CPPC e receber nossas publicações.
               Correspondentes não são considerados membros do CPPC, apenas apoiadores.

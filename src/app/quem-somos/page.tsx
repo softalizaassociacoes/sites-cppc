@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { cremos } from "@/content/site";
 
-export const metadata: Metadata = { title: "Quem Somos" };
+export const metadata: Metadata = pageMetadata({
+  title: "Quem Somos",
+  description:
+    "O CPPC é uma associação brasileira, sem fins lucrativos, de caráter cultural, teológico e científico, que congrega profissionais e estudantes da saúde mental desde 1976.",
+  path: "/quem-somos",
+});
 
 export default function QuemSomosPage() {
   return (

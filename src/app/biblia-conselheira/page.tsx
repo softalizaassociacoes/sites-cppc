@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { PostCard } from "@/components/PostCard";
 import { getPostsByCategory } from "@/lib/posts";
 
-export const metadata: Metadata = { title: "Bíblia Conselheira" };
+export const metadata: Metadata = pageMetadata({
+  title: "Bíblia Conselheira",
+  description:
+    "Quadros e conteúdos da Bíblia de Estudo Conselheira, publicada pelo CPPC em parceria com a Sociedade Bíblica do Brasil (SBB).",
+  path: "/biblia-conselheira",
+});
 
 export default function BibliaConselheiraPage() {
   const posts = getPostsByCategory("biblia-conselheira");

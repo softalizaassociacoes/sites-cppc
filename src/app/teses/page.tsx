@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { PostCard } from "@/components/PostCard";
 import { getPostsByCategory } from "@/lib/posts";
 
-export const metadata: Metadata = { title: "Teses" };
+export const metadata: Metadata = pageMetadata({
+  title: "Teses",
+  description:
+    "Trabalhos acadêmicos de membros e colaboradores do CPPC sobre psicologia, religiosidade e saúde mental.",
+  path: "/teses",
+});
 
 export default function TesesPage() {
   const posts = getPostsByCategory("teses");

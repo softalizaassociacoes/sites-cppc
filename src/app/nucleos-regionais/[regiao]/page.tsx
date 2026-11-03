@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { regions } from "@/content/regions";
+import { pageMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return regions.map((r) => ({ regiao: r.slug }));
@@ -15,7 +16,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { regiao } = await params;
   const region = regions.find((r) => r.slug === regiao);
-  return { title: region ? `Região ${region.name}` : "Núcleos Regionais" };
+  if (!region) return { title: "Núcleos Regionais" };
+  const temNucleos = region.nucleos.length > 0;
+  return pageMetadata({
+    title: `Região ${region.name}`,
+    description: temNucleos
+      ? `Núcleos do CPPC na Região ${region.name} (${region.states}) e os contatos das lideranças de cada cidade.`
+      : `O CPPC na Região ${region.name} (${region.states}). Informações sobre os núcleos e lideranças em breve.`,
+    path: `/nucleos-regionais/${region.slug}`,
+    hidden: !temNucleos,
+  });
 }
 
 export default async function RegionPage({
@@ -52,9 +62,9 @@ export default async function RegionPage({
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {region.nucleos.map((n, i) => (
                 <div key={i} className="rounded-2xl border border-primary-100 bg-white p-5 shadow-sm">
-                  <h3 className="font-serif-display text-base font-semibold text-primary-900">
+                  <h2 className="font-serif-display text-base font-semibold text-primary-900">
                     Núcleo do CPPC em {n.cidade}
-                  </h3>
+                  </h2>
                   {n.contato && <p className="mt-2 text-sm text-ink-soft">{n.contato}</p>}
                   {n.telefone && <p className="text-sm text-ink-soft">{n.telefone}</p>}
                   {n.email && (

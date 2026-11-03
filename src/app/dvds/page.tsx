@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 
-export const metadata: Metadata = { title: "DVDs" };
+export const metadata: Metadata = pageMetadata({
+  title: "DVDs",
+  description:
+    "DVDs e vídeos das palestras do CPPC. O conteúdo é de inteira responsabilidade dos autores.",
+  path: "/dvds",
+});
 
 export default function DvdsPage() {
   return (

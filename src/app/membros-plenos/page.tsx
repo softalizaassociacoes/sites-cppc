@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { membrosPlenos } from "@/content/members";
 
-export const metadata: Metadata = { title: "Membros Plenos" };
+export const metadata: Metadata = pageMetadata({
+  title: "Membros Plenos",
+  description:
+    "Relação dos membros plenos do CPPC, indicados e aprovados no devido processo de ingresso da associação.",
+  path: "/membros-plenos",
+});
 
 export default function MembrosPlenosPage() {
   return (

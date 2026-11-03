@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
 import { books } from "@/content/books";
 
-export const metadata: Metadata = { title: "Livros" };
+export const metadata: Metadata = pageMetadata({
+  title: "Livros",
+  description:
+    "Livros publicados por membros e colaboradores do CPPC. O conteúdo é de inteira responsabilidade dos autores.",
+  path: "/livros",
+});
 
 export default function LivrosPage() {
   return (
@@ -24,9 +30,9 @@ export default function LivrosPage() {
                 </div>
               )}
               <div className="flex flex-1 flex-col p-5">
-                <h3 className="font-serif-display text-base font-semibold leading-snug text-primary-900">
+                <h2 className="font-serif-display text-base font-semibold leading-snug text-primary-900">
                   {book.title}
-                </h3>
+                </h2>
                 {book.author && <p className="mt-1 text-sm text-ink-soft">{book.author}</p>}
                 {book.description && (
                   <p className="mt-2 line-clamp-4 text-sm text-ink-soft">{book.description}</p>

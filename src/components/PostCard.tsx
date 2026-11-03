@@ -2,7 +2,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { Post, formatDate } from "@/lib/posts";
 
-export function PostCard({ post, basePath }: { post: Post; basePath: string }) {
+export function PostCard({
+  post,
+  basePath,
+  headingLevel = "h2",
+}: {
+  post: Post;
+  basePath: string;
+  /**
+   * Nível do título do card. "h2" nas listagens, onde o card vem logo abaixo do
+   * h1 da página; "h3" quando o card está dentro de uma seção que já tem h2.
+   * Só muda a semântica — a aparência vem das classes.
+   */
+  headingLevel?: "h2" | "h3";
+}) {
+  const Heading = headingLevel;
   const image = post.featuredImage || post.images[0]?.src || null;
   return (
     <Link
@@ -28,9 +42,9 @@ export function PostCard({ post, basePath }: { post: Post; basePath: string }) {
         <time className="text-xs font-medium uppercase tracking-wide text-accent-600">
           {formatDate(post.date)}
         </time>
-        <h3 className="mt-2 font-serif-display text-lg font-semibold leading-snug text-primary-900 group-hover:text-primary-700">
+        <Heading className="mt-2 font-serif-display text-lg font-semibold leading-snug text-primary-900 group-hover:text-primary-700">
           {post.title}
-        </h3>
+        </Heading>
         {post.excerpt && (
           <p className="mt-2 line-clamp-3 text-sm text-ink-soft">{post.excerpt}</p>
         )}
