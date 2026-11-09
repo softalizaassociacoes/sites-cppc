@@ -46,8 +46,13 @@ export const siteConfig = {
   },
   /** Associe-se, Fazer login e Portal do associado — todos apontam para cá. */
   memberPortal: ASSOCIALIZA_CPPC,
-  /** Busca pública de profissionais: ainda não existe no Assocializa (404 lá). */
-  memberSearch: "https://associacoes.softaliza.com.br/busca_de_profissionais/cppc",
+  /** Busca pública de profissionais, embutida em /nossos-membros. */
+  memberSearch: "https://assocializa.com.br/embed/cppc/profissionais",
+  /**
+   * Script do Assocializa que ajusta a altura do iframe acima pelo conteúdo.
+   * Ele só escuta postMessage da mesma origem do embed e define style.height.
+   */
+  memberSearchResize: "https://assocializa.com.br/embed/resize.js",
   congressoSite: "https://congressonacionalcppc.com.br/",
   /** Imagem padrão de Open Graph (1200x630). */
   ogImage: "/og-cppc.png",

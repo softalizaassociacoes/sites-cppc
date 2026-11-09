@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { pageMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
@@ -33,14 +34,19 @@ export default function NossosMembrosPage() {
           </a>
         </div>
         <div className="overflow-hidden rounded-2xl border border-primary-100 shadow-sm">
+          {/* A altura abaixo é só o ponto de partida: o resize.js do Assocializa
+              ajusta o iframe ao conteúdo. Se o script não carregar, a busca
+              continua utilizável nesta altura. */}
           <iframe
             src={siteConfig.memberSearch}
-            title="Busca de profissionais CPPC"
-            className="h-[85vh] min-h-[600px] w-full lg:h-[950px]"
+            title="Busca de associados"
             loading="lazy"
+            className="block w-full border-0"
+            style={{ height: 900 }}
           />
         </div>
       </Container>
+      <Script src={siteConfig.memberSearchResize} strategy="afterInteractive" />
     </>
   );
 }

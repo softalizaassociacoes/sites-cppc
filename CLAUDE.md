@@ -44,16 +44,28 @@ Essa única página reúne os planos (*"Escolha seu plano"*) **e** o formulário
 Endereços antigos que **não** foram trocados, porque são outro caminho e não têm
 equivalente no Assocializa:
 
-- **Diretório de profissionais** (`siteConfig.memberSearch`), embutido em
-  `/nossos-membros`: segue em `associacoes.softaliza.com.br/busca_de_profissionais/cppc`.
-  O endereço equivalente no Assocializa **ainda não existe** — conferido em 03/11/2026:
-  `assocializa.com.br/busca_de_profissionais/cppc` dá 404, e `assocializa.com.br/cppc/membros`
-  também. O padrão da plataforma é `/{associação}/membros/{pessoa}` (a ABRADEP, por
-  exemplo, tem ~700 dessas no sitemap do Assocializa), ou seja, falta publicar o
-  diretório da CPPC lá. **Assim que estiver publicado, é só trocar `memberSearch`** —
-  uma linha em `src/content/site.ts`.
 - **Inscrição do evento Diálogos Literários**, em `src/app/eventos/page.tsx`:
   `associacoes.softaliza.com.br/evento/diálogos-literários`. Decidido manter.
+
+### Busca de profissionais (09/11/2026)
+
+`/nossos-membros` embute `https://assocializa.com.br/embed/cppc/profissionais`
+(`siteConfig.memberSearch`), que substituiu a busca antiga em
+`associacoes.softaliza.com.br/busca_de_profissionais/cppc`.
+
+O embed responde `Content-Security-Policy: frame-ancestors *`, ou seja, permite ser
+enquadrado. Junto com ele carrega `https://assocializa.com.br/embed/resize.js`
+(`siteConfig.memberSearchResize`), por `next/script` com `strategy="afterInteractive"`.
+Esse script escuta `postMessage` vindo da origem do embed e ajusta a altura do iframe
+ao conteúdo (medido: 890px no desktop, 1340px em 375px de largura). O `style={{ height: 900 }}`
+do iframe é só o ponto de partida, para a busca continuar utilizável caso o script
+não carregue.
+
+**Defeito conhecido, do lado do Assocializa** (medido em 09/11/2026): a coluna
+*Cidade* mostra o código interno do registro no lugar do nome em **85 dos 124
+profissionais (69%)**, e **40 das 63 opções** do seletor de cidades são códigos.
+Exemplo: `1710858841719x607005258514759400` no lugar de "Campinas". Não é do site;
+nada a corrigir aqui.
 
 ### Contato
 
@@ -95,6 +107,8 @@ páginas são feitas em Elementor, e o `<main id="content">` do HTML é o que va
 | `/organizacao` | A frase "Fiquei assustado, mas meu pai participou da conversa com os agentes, me tranquilizando" |
 | `/nucleos-regionais/sao-paulo` | A secretaria do núcleo da Baixada Santista (Elvira Batista Rodrigues) |
 | `/nossos-membros` | O botão "Abrir a busca em tela cheia" para telas estreitas (mudança do WordPress de 14/09/2026) |
+
+> A busca embutida nessa página foi trocada depois dessa conferência; ver "Busca de profissionais (09/11/2026)".
 | `/livros` | O segundo link do card da Bíblia de Estudo Conselheira ("Confira o vídeo") |
 
 O restante das diferenças que a comparação aponta é reescrita da migração (numeração
